@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<style type="text/css">
+			#meter {
+				border:1px solid #000;
+				width:55em;
+				margin:auto;
+				height: 35px;
+			}
+			#progressBar {
+				background:#333;
+				height:35px;
+				width:0%
+			}
+			input#count {
+			    border: 1px solid #000;
+			    height: 25px;
+			    width: 300px;
+			    margin-right: 10px;
+			    padding:2px 5px;
+			}
+			h1 {
+			    margin: auto;
+			    display: table;
+			    margin-bottom: 40px;
+			}
+			input[type="submit"] {
+			    border: 1px solid #c1c1c1;
+			    padding: 6px 35px;
+			    border-radius: 5px;
+			}
+			.progressField {
+			    margin: auto;
+			    display: table;
+			}
+			label{
+				margin-right: 20px;
+			}
+		</style>
+	</head>
+	<body>
+	<h1>Progress Bar</h1>
+		<div id="meter"><div id="progressBar"></div></div>
+		<br>
+		<div class="progressField">
+		<input type="text" id="count" class="count" name="count" placeholder="Enter your Percentage Level"/> <label> / 100</label>
+		<input type="submit" onClick="progressPer()"></div>
+		<script>
+			var count = 0;
+			var bar = document.getElementById('progressBar');
+			
+			function progressPer() {
+				var count = document.getElementById('count').value;
+				var isnum = /^\d+$/;
+				
+				if(count.match(isnum)){
+					if(count >100)
+				 	count=100;
+					bar.style.width = count + "%";
+				}
+				else{
+					alert("only Numbers");
+				}
+			}
+		</script>
+	</body>
+</html>
